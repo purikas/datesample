@@ -1,15 +1,17 @@
 package sample;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 public class Main {
 
     public static void main(String[] args) {
-	    ZoneId localZone = ZoneId.systemDefault();
+	    TimeZone localZone = TimeZone.getDefault();
         System.out.println(localZone);
 
-        ZonedDateTime aeg = ZonedDateTime.of(2014, 3, 30, 3, 30, 0, 0, localZone);
-        System.out.println(aeg);
+        GregorianCalendar calendar = new GregorianCalendar(localZone);
+        calendar.set(2014, Calendar.MARCH, 30, 3, 30);
+        System.out.println(calendar.getTime());
     }
 }
